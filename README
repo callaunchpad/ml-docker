@@ -1,0 +1,7 @@
+To install CUDA drivers run sudo ./aws.sh
+
+Reccomended: `source docker-base/shortcuts.sh`
+Use `docker-build ml-base` to build an image
+Use `docker-run ml-base` for a shell in the container
+
+Run the script located at /root/tf-gpu-verify.py to ensure that tensorflow properly detects gpus.

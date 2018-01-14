@@ -5,6 +5,7 @@ RUN apt-get install -y \
 	ant \
 	apt-utils \
 	build-essential \
+	checkinstall \
 	cmake \
 	default-jdk \
 	doxygen \
@@ -18,6 +19,7 @@ RUN apt-get install -y \
 	libgdal-dev \
 	libjasper-dev \
 	libjpeg8-dev \
+	liblapacke-dev \
 	libopencore-amrnb-dev \
 	libopencore-amrwb-dev \
 	libopenexr-dev \

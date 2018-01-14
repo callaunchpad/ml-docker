@@ -31,13 +31,16 @@ mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
-	-D WITH_CUDA=ON \
+	-D WITH_OPENGL=ON \
+	-D WITH_OPENCL=ON \
+	-D WITH_EIGEN=ON \
+	-D WITH_V4L=ON \
+	-D WITH_CUDA=OFF \
 	-D ENABLE_FAST_MATH=1 \
-	-D CUDA_FAST_MATH=1 \
-	-D WITH_CUBLAS=1 \
+	-D CMAKE_LIBRARY_PATH=/usr/local/cuda/lib64/stubs \
 	-D INSTALL_PYTHON_EXAMPLES=ON \
 	-D BUILD_EXAMPLES=ON ..
-make -j32
+make -j $(nproc)
 sudo make install
 sudo ldconfig
 
