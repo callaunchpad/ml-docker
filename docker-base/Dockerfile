@@ -50,10 +50,20 @@ RUN pip install \
 	numpy \
 	pandas \
 	scipy \
+	sklearn \
 	tensorflow-gpu
+
+COPY tf-gpu-verify.py /root/
 
 RUN mkdir -p /usr/local/installers
 COPY install-opencv.sh /usr/local/installers/
 RUN bash /usr/local/installers/install-opencv.sh
 
-COPY tf-gpu-verify.py /root/
+RUN git clone https://github.com/torch/distro.git /root/torch --recursive
+RUN cd /root/torch; bash /root/torch/install-deps; bash /root/torch/install.sh
+
+#Luarocks => Luasucks. Can't even install multiple modules on one line???
+RUN /root/torch/install/bin/luarocks install cutorch 
+RUN /root/torch/install/bin/luarocks install cunn 
+RUN /root/torch/install/bin/luarocks install cudnn
+

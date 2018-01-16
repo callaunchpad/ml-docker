@@ -1,3 +1,6 @@
 .sudo_as_admin_successful
 .viminfo
 image.tar
+.bash_history
+.cache/
+.ssh
