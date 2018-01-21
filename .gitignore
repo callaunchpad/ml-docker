@@ -4,3 +4,5 @@ image.tar
 .bash_history
 .cache/
 .ssh
+.wget-hsts
+project/
